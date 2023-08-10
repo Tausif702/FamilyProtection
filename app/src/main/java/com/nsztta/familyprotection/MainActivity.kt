@@ -14,18 +14,26 @@ class MainActivity : AppCompatActivity()  {
         val buttomBar=findViewById<BottomNavigationView>(R.id.buttom_Bar)
 
        buttomBar.setOnItemSelectedListener{
-          if (it.itemId==R.id.nav_guard){
-              inflateFragment(GuardFragment.newInstance())
+          when(it.itemId) {
+             R.id.nav_guard-> {
+                  inflateFragment(GuardFragment.newInstance())
+              }
+
+              R.id.nav_home-> {
+                  inflateFragment(HomeFragment.newInstance())
+              }
+
+              R.id.nav_dashboard-> {
+                  inflateFragment(DashboardFragment.newInstance())
+              }
+
+              R.id.nav_profile-> {
+                  inflateFragment(ProfileFragment.newInstance())
+              }
           }
-           if (it.itemId==R.id.nav_home){
-               inflateFragment(HomeFragment.newInstance())
-           }else if (it.itemId==R.id.nav_dashboard){
-               inflateFragment(DashboardFragment.newInstance())
-           }else if (it.itemId==R.id.nav_profile){
-               inflateFragment(ProfileFragment.newInstance())
-           }
            true
        }
+        buttomBar.selectedItemId=R.id.nav_home
 
     }
 
